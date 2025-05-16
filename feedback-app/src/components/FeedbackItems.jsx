@@ -5,7 +5,7 @@ import { HiMiniXMark } from "react-icons/hi2";
 
 
 
-function Feedbackitems({ feedbackitems_prop }) {
+function Feedbackitems({ feedbackitems_prop, deleteFeedback }) {
   return (
      <Card>
           <div className="flex justify-between items-center">
@@ -15,7 +15,7 @@ function Feedbackitems({ feedbackitems_prop }) {
                 <MdCreditScore size={20}/>
 
               </button>
-              <button type='button' className='text-xl text-red-500'>
+              <button type='button' className='text-xl text-red-500' onClick={() => deleteFeedback(feedbackitems_prop.id)}>
                 <HiMiniXMark size={20}/>
               </button>
             </div>

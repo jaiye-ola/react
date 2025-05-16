@@ -3,7 +3,7 @@ import Container from './shared/Container'
 import SelectRated from './selectRated'
 import Feedbackstats from './Feedbackstats'
 
-function FeedbackForm() {
+function FeedbackForm({ feedbackstats_prop }) {
   return (
     <div>
       <Container>
@@ -30,9 +30,9 @@ function FeedbackForm() {
               </form>
             </div>
           </div>
-        <div className='bg-blue-300'>
-          <Feedbackstats />
-          {/* feedback */}
+        <div className=''>
+          <Feedbackstats feedbackstats_prop ={feedbackstats_prop}/>
+          {/* <Feedbackstats/> */}
         </div>
         </div>
         
