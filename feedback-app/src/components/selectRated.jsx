@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function SelectRated(selectrated_prop, editFeedback) {
-  const { selected, setSelected } = useState(5);
+function SelectRated({ selectrated_prop, editFeedback }) {
+  const [selected, setSelected] = useState(5);
 
   useEffect((e) => {
     if (editFeedback.edit) {

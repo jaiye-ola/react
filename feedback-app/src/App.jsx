@@ -36,7 +36,7 @@ function App() {
   const updateFeedbackHandler = (id, updatedItem) => {
     setFeedback(
       feedback.map((items) =>
-        items.id === id ? [...items, ...updatedItem] : items
+        items.id === id ? { ...items, ...updatedItem } : items
       )
     );
   };
