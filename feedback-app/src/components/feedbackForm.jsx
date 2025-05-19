@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "./shared/Container";
 import SelectRated from "./selectRated";
 import Feedbackstats from "./Feedbackstats";
 import { useForm } from "react-hook-form";
 
-function FeedbackForm({ feedbackstats_prop, addFeedbackHandler }) {
+function FeedbackForm({
+  feedbackstats_prop,
+  addFeedbackHandler,
+  updateFeedbackHandler,
+  editFeedback,
+}) {
   const {
     register,
     reset,
@@ -19,14 +24,25 @@ function FeedbackForm({ feedbackstats_prop, addFeedbackHandler }) {
     },
   });
 
+  useEffect(() => {
+    if (editFeedback.edit) {
+      setValue("title", editFeedback.items.title);
+      setValue("rating", editFeedback.items.rating);
+    }
+  }, [editFeedback, setValue]);
+
   const onSubmit = (data) => {
     const newFeedback = {
       ...data,
     };
 
     console.log(newFeedback);
+    if (editFeedback.edit) {
+      updateFeedbackHandler(editFeedback.items.id, newFeedback);
+    } else {
+      addFeedbackHandler(newFeedback);
+    }
 
-    addFeedbackHandler(newFeedback);
     reset({
       title: "",
       rating: 4,
@@ -75,7 +91,7 @@ function FeedbackForm({ feedbackstats_prop, addFeedbackHandler }) {
                     type="submit"
                     className='w-[20%] p-3 text-white rounded-md ${!isValid} ? "bg-gray-200" : "bg-gray-500" hover:bg-gray-400 duration-500 hover:translate-x-2 bg-gray-500'
                   >
-                    Add feedback
+                    {editFeedback.edit ? "Updated-feedback" : "Add-Feedback"}
                   </button>
                 </div>
               </form>

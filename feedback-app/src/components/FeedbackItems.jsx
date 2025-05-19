@@ -3,7 +3,12 @@ import Card from "./shared/Card";
 import { MdCreditScore } from "react-icons/md";
 import { HiMiniXMark } from "react-icons/hi2";
 
-function Feedbackitems({ feedbackitems_prop, deleteFeedback }) {
+function Feedbackitems({
+  feedbackitems_prop,
+  deleteFeedback,
+  editFeedbackHandler,
+}) {
+  // console.log(feedbackitems_prop)
   return (
     <Card>
       <div className="flex justify-between items-center">
@@ -11,7 +16,11 @@ function Feedbackitems({ feedbackitems_prop, deleteFeedback }) {
           {feedbackitems_prop.rating}
         </div>
         <div>
-          <button type="button" className="text-xl text-blue-500">
+          <button
+            type="button"
+            onClick={() => editFeedbackHandler(feedbackitems_prop)}
+            className="text-xl text-blue-500"
+          >
             <MdCreditScore size={20} />
           </button>
           <button

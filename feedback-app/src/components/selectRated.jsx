@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function SelectRated() {
+function SelectRated(selectrated_prop, editFeedback) {
   const { selected, setSelected } = useState(5);
+
+  useEffect((e) => {
+    if (editFeedback.edit) {
+      setSelected(+e.target.value);
+    }
+  }, []);
 
   const handleSelectRated = (e) => {
     console.log(e.target.value);

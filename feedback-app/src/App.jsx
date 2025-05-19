@@ -8,7 +8,11 @@ import FeedbackForm from "./components/feedbackForm";
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
-  // console.log(feedback);
+  const [editFeedback, setEditFeedback] = useState({
+    items: [],
+    edit: false,
+  });
+  // console.log(feedback)FeedbackData
 
   const deleteFeedback = (id) => {
     if (window.confirm("Are you sure, you want to delete feedback?"))
@@ -21,14 +25,33 @@ function App() {
     setFeedback([newFeedback, ...feedback]);
   };
 
+  const editFeedbackHandler = (items) => {
+    console.log(items);
+    setEditFeedback({
+      items,
+      edit: true,
+    });
+  };
+
+  const updateFeedbackHandler = (id, updatedItem) => {
+    setFeedback(
+      feedback.map((items) =>
+        items.id === id ? [...items, ...updatedItem] : items
+      )
+    );
+  };
+
   return (
     <>
       <Header />
       <FeedbackForm
+        updateFeedbackHandler={updateFeedbackHandler}
+        editFeedback={editFeedback}
         feedbackstats_prop={feedback}
         addFeedbackHandler={addFeedbackHandler}
       />
       <FeedbackList
+        editFeedbackHandler={editFeedbackHandler}
         deleteFeedback={deleteFeedback}
         feedbacklist_prop={feedback}
       />
