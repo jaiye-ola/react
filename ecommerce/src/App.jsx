@@ -1,20 +1,22 @@
 import React from "react"
 import Header from "./components/Header"
 import Carousel from "./components/Carousel"
-import About from "./components/shared/About"
+import About from "./components/About"
 import ProductItem from "./components/ProductItem"
 import { ProductProvider } from "./context/ProductContext"
+import Featured from "./components/Featured"
+import Trending from "./components/Trending"
 
-function App() {
-  return
-  <div>
-    <Header/>
-    <Carousel/>
-    <About/>
-    <ProductItem/>
-    <ProductProvider/>
-  </div>
-  
+
+function App () {
+  return (
+    <ProductProvider>
+        <Header />
+        <Carousel />
+        <About />
+        <Featured />
+        <Trending />
+    </ProductProvider>
+  )
 }
-
-export default App
+export default App;

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-function Container(children, className) {
+function Container({children, className}) {
   return (
     <div className={`max-w-5xl mx-12 w-full mx-auto ${className}`}>
       {children}
@@ -8,4 +8,4 @@ function Container(children, className) {
   )
 }
 
-export default Container
+export default Container;

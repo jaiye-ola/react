@@ -2,7 +2,7 @@ import React from 'react'
 import { CiTimer } from "react-icons/ci";
 import { BsFillBusFrontFill } from "react-icons/bs";
 import { FaCalendarAlt } from "react-icons/fa";
-import Container from './Container';
+import Container from './shared/Container';
 
 function About() {
   return (

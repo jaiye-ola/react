@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server db.json",
-    "start": "concurrent.ly \"npm run dev\" \"npm run-server\""
+    "server": "json-server --watch db.json",
+    "start": "concurrently \"npm run dev\" \"npm run server\""
   },
   "dependencies": {
     "concurrently": "^9.1.2",
