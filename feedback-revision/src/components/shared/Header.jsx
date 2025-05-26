@@ -71,29 +71,3 @@ function Header() {
         </div>
         <div className="logo">
           <h3><a href="">Venus</a></h3>
-</div>
-        <div className="search flex items-center justify-around gap-3">
-          <div className="flex items-center space-x-2 px-2 justify-center border w-full border-white rounded-full gap-3">
-            <span><CiSearch /></span>
-            <input type="text" className="border-none outline-none p-2" placeholder="Search for anything" />
-          </div>
-          <div>
-            <ul className="flex gap-2">
-              <li><CiUser size={24} /></li>
-                <li className="relative">
-                <CiShoppingCart size={24} className="text-white" />
-                {/* {count > 0 && ( */}
-                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                    {/* {count} */} 0
-                    </span>
-                {/* )} */}
-                </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-export default Header;
