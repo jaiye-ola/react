@@ -18,6 +18,7 @@ function ProductItem({ productitems }) {
           <a href="" className="border-[#0034FC]">
             View More
           </a>
+          ``
         </div>
       </div>
     </div>

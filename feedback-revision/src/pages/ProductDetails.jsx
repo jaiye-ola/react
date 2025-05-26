@@ -7,7 +7,10 @@ function ProductDetails() {
   const products = useContext(ProductContext);
   const showItem = useParams();
 
-  const productItem = products.find((items) => items.id === showItem);
+  const productItem = products.find(
+    (items) => parseInt(items.id) === parseInt(showItem)
+  );
+  console.log(productItem);
   return (
     <Container>
       <div className="grid grid-cols-1 md:grid-cols-2">
