@@ -11,7 +11,7 @@ function Cart() {
         className="lg:h-[20vh] mb-12 lg:text-[10px]"
         flex="hidden"
       ></Carousel>
-      <Container className={"overflow-scroll"}>
+      <Container className={"mt-5 mb-12"}>
         <div className="overflow-auto lg:overflow-hidden"></div>
         <table className="w-full capitalize text-center ">
           <thead>

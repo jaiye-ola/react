@@ -9,25 +9,14 @@ export const ProductProvider = ({ children }) => {
   const trending = product.filter((items) => items.trending === true);
 
   useEffect(() => {
-    getProducts();
+    fetchProduct();
   }, []);
   const fetchProduct = async(() => {
-    const res = await(getProducts());
-    if (res.ok) {
-      setProduct(res);
-    }
-  });
-
-  const getProducts = async () => {
-    const response = await fetch("http://localhost:3000/product", {
-      method: "GET",
-    });
-    const data = await response.json();
-    if (response.ok) {
-      // console.log("data", data)
+    const data = getProducts();
+    if (data) {
       setProduct(data);
     }
-  };
+  });
 
   return (
     <ProductContext.Provider value={{ product, featured, trending }}>
